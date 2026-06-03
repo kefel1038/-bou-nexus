@@ -40,8 +40,8 @@ export default function InclusionMap({ height = 500 }: { height?: number }) {
   const mapCenter: [number, number] = [1.3733, 32.2903];
 
   const getColor = (score: number) => {
-    if (score >= 80) return "#006B3F";
-    if (score >= 60) return "#FFD700";
+    if (score >= 80) return "#4A2C1B";
+    if (score >= 60) return "#C5A880";
     if (score >= 40) return "#f59e0b";
     return "#ef4444";
   };
@@ -135,8 +135,8 @@ export default function InclusionMap({ height = 500 }: { height?: number }) {
           </CardHeader>
           <CardContent className="p-4 space-y-2">
             {[
-              { color: "#006B3F", label: "High Access (80%+)" },
-              { color: "#FFD700", label: "Moderate Access (60-79%)" },
+              { color: "#4A2C1B", label: "High Access (80%+)" },
+              { color: "#C5A880", label: "Moderate Access (60-79%)" },
               { color: "#f59e0b", label: "Low Access (40-59%)" },
               { color: "#ef4444", label: "Critical Access (<40%)" },
             ].map((item) => (

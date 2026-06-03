@@ -58,7 +58,7 @@ export default function InclusionMapPage() {
             <CardContent>
               <BarChart
                 data={districtScores}
-                bars={[{ key: "score", color: "#006B3F", name: "Access Score" }]}
+                bars={[{ key: "score", color: "#4A2C1B", name: "Access Score" }]}
                 height={350}
               />
             </CardContent>

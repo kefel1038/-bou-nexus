@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import {
-  Landmark, TrendingUp, Users, Shield, MessageSquare, Briefcase,
+  TrendingUp, Users, Shield, MessageSquare, Briefcase,
   BarChart3, PieChart as PieChartIcon, Map, DollarSign, AlertTriangle,
   RefreshCw, Activity, Banknote, Building, CreditCard, TreePine,
 } from "lucide-react";
@@ -83,8 +83,8 @@ export default function BOUCommandCenter() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <div className="flex items-center gap-3 mb-1">
-              <div className="w-10 h-10 rounded-lg bg-bou-500 flex items-center justify-center">
-                <Landmark className="w-5 h-5 text-white" />
+              <div className="w-12 h-12 rounded-lg bg-white border border-gray-100 shadow-sm flex items-center justify-center p-1.5">
+                <img src="/logo.jpg" alt="Bank of Uganda Logo" className="h-full w-full object-contain" />
               </div>
               <h1 className="text-2xl font-bold text-gray-900">Bank of Uganda Command Center</h1>
             </div>
@@ -120,7 +120,7 @@ export default function BOUCommandCenter() {
               </div>
             </CardHeader>
             <CardContent>
-              <BarChart data={districtAccess} bars={[{ key: "score", color: "#006B3F", name: "Access Score %" }]} height={300} />
+              <BarChart data={districtAccess} bars={[{ key: "score", color: "#4A2C1B", name: "Access Score %" }]} height={300} />
             </CardContent>
           </Card>
           <Card>

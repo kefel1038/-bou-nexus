@@ -87,7 +87,7 @@ export default function TreasuryPage() {
               <CardContent>
                 <BarChart
                   data={districtData}
-                  bars={[{ key: "value", color: "#006B3F", name: "Amount (UGX M)" }]}
+                  bars={[{ key: "value", color: "#4A2C1B", name: "Amount (UGX M)" }]}
                   height={300}
                 />
               </CardContent>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Landmark, Phone, Lock, Eye, EyeOff } from "lucide-react";
+import { Phone, Lock, Eye, EyeOff } from "lucide-react";
 import Button from "../ui/Button";
 import Card, { CardContent } from "../ui/Card";
 import { api } from "@/lib/api";
@@ -40,8 +40,8 @@ export default function LoginForm({ onSuccess }: { onSuccess?: () => void }) {
     <Card className="max-w-md mx-auto">
       <CardContent className="p-8">
         <div className="text-center mb-6">
-          <div className="w-14 h-14 rounded-xl bg-bou-500 flex items-center justify-center mx-auto mb-4">
-            <Landmark className="w-7 h-7 text-white" />
+          <div className="w-16 h-16 rounded-xl bg-white border border-gray-100 shadow-md flex items-center justify-center mx-auto mb-4 p-2">
+            <img src="/logo.jpg" alt="Bank of Uganda Logo" className="h-full w-full object-contain" />
           </div>
           <h2 className="text-xl font-bold text-gray-900">Welcome to BoU Nexus</h2>
           <p className="text-sm text-gray-500 mt-1">Sign in to your account</p>

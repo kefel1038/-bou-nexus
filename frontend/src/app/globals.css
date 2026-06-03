@@ -5,9 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --bou-green: #006B3F;
-  --bou-gold: #FFD700;
-  --bou-accent: #1E88E5;
+  --bou-brown: #4A2C1B;
+  --bou-gold: #C5A880;
+  --bou-accent: #8C6239;
 }
 
 * {
@@ -16,15 +16,15 @@
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background: #f8fafc;
+  background: #FAF7F2;
   color: #1e293b;
 }
 
 @layer utilities {
   .bg-bou-grid {
     background-image:
-      linear-gradient(rgba(0, 107, 63, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 107, 63, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(74, 44, 27, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 44, 27, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 }

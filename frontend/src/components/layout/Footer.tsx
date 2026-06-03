@@ -1,4 +1,3 @@
-import { Landmark } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -6,9 +5,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-bou-500 flex items-center justify-center">
-                <Landmark className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-white p-1 rounded-lg shadow-sm border border-gray-100 flex items-center justify-center w-10 h-10">
+                <img src="/logo.jpg" alt="Bank of Uganda Logo" className="h-full w-full object-contain rounded" />
               </div>
               <span className="font-bold text-lg">BoU Nexus</span>
             </div>

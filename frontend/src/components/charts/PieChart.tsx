@@ -5,7 +5,7 @@ import {
   Pie, Cell, Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
 
-const COLORS = ["#006B3F", "#FFD700", "#1E88E5", "#FF6B6B", "#4CAF50", "#FF9800", "#9C27B0", "#00BCD4"];
+const COLORS = ["#4A2C1B", "#C5A880", "#8C6239", "#BBA081", "#D2BFA6", "#E4D4C3", "#FAF7F2", "#170E08"];
 
 interface PieChartProps {
   data: { name: string; value: number }[];
