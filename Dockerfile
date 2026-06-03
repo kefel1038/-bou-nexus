@@ -31,4 +31,4 @@ COPY --from=backend /app/backend/node_modules ./backend/node_modules
 
 EXPOSE 3000 4000 8000
 
-CMD ["sh", "-c", "node backend/dist/index.js & cd /app && npm start"]
+CMD node /app/backend/dist/index.js & npm start --prefix /app
