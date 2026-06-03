@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
 import {
   TrendingUp, Users, Shield, MessageSquare, Briefcase,
-  BarChart3, PieChart as PieChartIcon, Map, DollarSign, AlertTriangle,
-  RefreshCw, Activity, Banknote, Building, CreditCard, TreePine,
+  BarChart3, Map, DollarSign, AlertTriangle,
+  RefreshCw, Activity, Banknote, Building, Globe, Lightbulb,
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -13,15 +12,17 @@ import Card, { CardContent, CardHeader } from "@/components/ui/Card";
 import KPICard from "@/components/dashboard/KPICard";
 import BarChart from "@/components/charts/BarChart";
 import PieChart from "@/components/charts/PieChart";
-import LineChart from "@/components/charts/LineChart";
-import AreaChart from "@/components/charts/AreaChart";
 import FraudFeed from "@/components/fraud/FraudFeed";
 import InclusionMap from "@/components/map/InclusionMap";
-import ActivityTimeline from "@/components/dashboard/ActivityTimeline";
+import FinancialPulse from "@/components/dashboard/FinancialPulse";
+import InclusionScore from "@/components/dashboard/InclusionScore";
+import PolicyRecommendations from "@/components/dashboard/PolicyRecommendations";
+import CitizenJourney from "@/components/dashboard/CitizenJourney";
+import ActivityStream from "@/components/dashboard/ActivityStream";
+import EconomicIntelligence from "@/components/dashboard/EconomicIntelligence";
 import { api } from "@/lib/api";
 
 export default function BOUCommandCenter() {
-  const router = useRouter();
   const [overview, setOverview] = useState<any>(null);
   const [consumer, setConsumer] = useState<any>(null);
   const [fraud, setFraud] = useState<any>(null);
@@ -80,16 +81,21 @@ export default function BOUCommandCenter() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
             <div className="flex items-center gap-3 mb-1">
-              <div className="w-12 h-12 rounded-lg bg-white border border-gray-100 shadow-sm flex items-center justify-center p-1.5">
-                <img src="/logo.jpg" alt="Bank of Uganda Logo" className="h-full w-full object-contain" />
+              <div className="w-12 h-12 rounded-lg bg-bou-500 flex items-center justify-center">
+                <Building className="w-7 h-7 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900">Bank of Uganda Command Center</h1>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">Bank of Uganda</h1>
+                <p className="text-sm text-bou-600 font-medium">National Financial Intelligence Center</p>
+              </div>
             </div>
-            <p className="text-gray-500 text-sm ml-[52px]">
-              National Financial Intelligence Dashboard {lastUpdated && `• Last updated: ${lastUpdated}`}
+            <p className="text-gray-500 text-sm mt-1">
+              Uganda Financial Inclusion &amp; Intelligence Platform
+              {lastUpdated && <span className="ml-2 text-gray-400">• Last updated: {lastUpdated}</span>}
             </p>
           </div>
           <button
@@ -102,6 +108,12 @@ export default function BOUCommandCenter() {
           </button>
         </div>
 
+        {/* Financial Pulse */}
+        <div className="mb-8">
+          <FinancialPulse />
+        </div>
+
+        {/* KPI Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-3 mb-8">
           <KPICard label="Total Users" value={overview?.totalUsers || 0} icon={<Users className="w-5 h-5" />} color="bou" />
           <KPICard label="Savings Accounts" value={overview?.totalSavings || 0} icon={<Banknote className="w-5 h-5" />} color="green" />
@@ -111,6 +123,14 @@ export default function BOUCommandCenter() {
           <KPICard label="SMEs" value={overview?.totalSMEs || 0} icon={<Briefcase className="w-5 h-5" />} color="blue" />
         </div>
 
+        {/* National Score + Policy + Citizen Journey */}
+        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+          <InclusionScore />
+          <PolicyRecommendations />
+          <CitizenJourney />
+        </div>
+
+        {/* Inclusion & Fraud Charts */}
         <div className="grid lg:grid-cols-2 gap-6 mb-8">
           <Card>
             <CardHeader>
@@ -136,6 +156,7 @@ export default function BOUCommandCenter() {
           </Card>
         </div>
 
+        {/* Consumer, Economic, Capital Markets */}
         <div className="grid lg:grid-cols-3 gap-6 mb-8">
           <Card>
             <CardHeader>
@@ -214,6 +235,7 @@ export default function BOUCommandCenter() {
           </Card>
         </div>
 
+        {/* Savings & Investment + FX */}
         <div className="grid lg:grid-cols-2 gap-6 mb-8">
           <Card>
             <CardHeader>
@@ -264,6 +286,7 @@ export default function BOUCommandCenter() {
           </Card>
         </div>
 
+        {/* Fraud + Inclusion Map */}
         <div className="grid lg:grid-cols-3 gap-6 mb-8">
           <Card>
             <CardHeader>
@@ -289,36 +312,10 @@ export default function BOUCommandCenter() {
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <Activity className="w-4 h-4 text-purple-500" />
-                <h3 className="font-semibold text-gray-900">Recent Activity Timeline</h3>
-              </div>
-            </CardHeader>
-            <CardContent className="max-h-[400px] overflow-y-auto">
-              <ActivityTimeline activities={[]} />
-              <p className="text-center text-gray-400 text-sm py-4">
-                Activity tracking appears when users interact with the platform
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <TreePine className="w-4 h-4 text-green-500" />
-                <h3 className="font-semibold text-gray-900">Agricultural & SME Trends</h3>
-              </div>
-            </CardHeader>
-            <CardContent>
-              {sectorData.length > 0 ? (
-                <BarChart data={sectorData.slice(0, 6)} bars={[{ key: "revenue", color: "#22c55e", name: "Avg Revenue (UGX M)" }]} height={300} />
-              ) : (
-                <p className="text-center text-gray-400 py-8">Loading sector data...</p>
-              )}
-            </CardContent>
-          </Card>
+        {/* Activity + Economic Intelligence */}
+        <div className="grid lg:grid-cols-2 gap-6 mb-8">
+          <ActivityStream />
+          <EconomicIntelligence />
         </div>
       </div>
       <Footer />

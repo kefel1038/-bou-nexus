@@ -60,7 +60,7 @@ export default function AdminPage() {
             <p className="text-gray-500 mt-1 capitalize">{user.role} &middot; {user.district}</p>
             <div className="flex flex-col gap-3 mt-6">
               <Button onClick={() => router.push("/bou-command-center")} className="w-full">
-                BOU Command Center
+                National Intelligence Center
               </Button>
               <Button variant="outline" onClick={() => router.push("/treasury")} className="w-full">
                 Treasury Portal

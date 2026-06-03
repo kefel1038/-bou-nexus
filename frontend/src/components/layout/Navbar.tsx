@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/regional-payments", label: "Regional Payments" },
   { href: "/escrow", label: "School Escrow" },
   { href: "/inclusion-map", label: "Inclusion Map" },
-  { href: "/bou-command-center", label: "BOU Command Center" },
+  { href: "/bou-command-center", label: "National Intelligence Center" },
 ];
 
 const portalLinks = [
