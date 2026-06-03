@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bou-green: #006B3F;
+  --bou-gold: #FFD700;
+  --bou-accent: #1E88E5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+@layer utilities {
+  .bg-bou-grid {
+    background-image:
+      linear-gradient(rgba(0, 107, 63, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 107, 63, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
