@@ -1,0 +1,24 @@
+services:
+  # Express Backend
+  - type: web
+    name: bou-nexus-backend
+    env: node
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: CORS_ORIGIN
+        value: https://frontend-khaki-zeta-hzh8kspg80.vercel.app
+      - key: JWT_SECRET
+        value: bou-nexus-secret-key-2024
+
+  # FastAPI AI Engine
+  - type: web
+    name: bou-nexus-ai
+    env: python
+    buildCommand: pip install -r ai-engine/requirements.txt
+    startCommand: cd ai-engine && uvicorn main:app --host 0.0.0.0 --port 10001
+    envVars:
+      - key: PORT
+        value: 10001
