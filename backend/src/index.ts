@@ -14,10 +14,7 @@ import inclusionRoutes from "./routes/inclusion";
 const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 4000;
 
-app.use(cors({
-  origin: process.env.CORS_ORIGIN || "http://localhost:3000",
-  credentials: true,
-}));
+app.use(cors());
 app.use(express.json());
 
 app.get("/api/health", (_req, res) => {
